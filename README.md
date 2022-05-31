@@ -5,6 +5,10 @@
 
 Simple Hello messages rails API
 
+## Frontend
+
+The frontend was made with react and can be found [here](https://github.com/JohnFTitor/hello-react-front-end)
+
 ## Deployment
 
 You can find the API deployment [here](https://jf-hello-rails-api.herokuapp.com/v1/greetings)
