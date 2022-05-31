@@ -1,0 +1,161 @@
+  [1m[35m (288.7ms)[0m  [1m[35mCREATE DATABASE "hello_rails_back_end_development" ENCODING = 'unicode'[0m
+  [1m[35m (92.4ms)[0m  [1m[35mCREATE DATABASE "hello_rails_back_end_test" ENCODING = 'unicode'[0m
+  [1m[35m (14.6ms)[0m  [1m[35mCREATE TABLE "schema_migrations" ("version" character varying NOT NULL PRIMARY KEY)[0m
+  [1m[35m (9.5ms)[0m  [1m[35mCREATE TABLE "ar_internal_metadata" ("key" character varying NOT NULL PRIMARY KEY, "value" character varying, "created_at" timestamp(6) NOT NULL, "updated_at" timestamp(6) NOT NULL)[0m
+  [1m[35m (0.8ms)[0m  [1m[34mSELECT pg_try_advisory_lock(3369180297042482685)[0m
+  [1m[36mActiveRecord::SchemaMigration Pluck (1.3ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+Migrating to CreateGreetings (20220531151417)
+  [1m[36mTRANSACTION (0.3ms)[0m  [1m[35mBEGIN[0m
+  [1m[35m (15.1ms)[0m  [1m[35mCREATE TABLE "greetings" ("id" bigserial primary key, "text" character varying, "created_at" timestamp(6) NOT NULL, "updated_at" timestamp(6) NOT NULL)[0m
+  [1m[36mActiveRecord::SchemaMigration Create (1.8ms)[0m  [1m[32mINSERT INTO "schema_migrations" ("version") VALUES ($1) RETURNING "version"[0m  [["version", "20220531151417"]]
+  [1m[36mTRANSACTION (3.9ms)[0m  [1m[35mCOMMIT[0m
+  [1m[36mActiveRecord::InternalMetadata Load (2.0ms)[0m  [1m[34mSELECT "ar_internal_metadata".* FROM "ar_internal_metadata" WHERE "ar_internal_metadata"."key" = $1 LIMIT $2[0m  [["key", "environment"], ["LIMIT", 1]]
+  [1m[36mTRANSACTION (0.3ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mActiveRecord::InternalMetadata Create (0.5ms)[0m  [1m[32mINSERT INTO "ar_internal_metadata" ("key", "value", "created_at", "updated_at") VALUES ($1, $2, $3, $4) RETURNING "key"[0m  [["key", "environment"], ["value", "development"], ["created_at", "2022-05-31 15:22:21.953968"], ["updated_at", "2022-05-31 15:22:21.953968"]]
+  [1m[36mTRANSACTION (0.6ms)[0m  [1m[35mCOMMIT[0m
+  [1m[35m (0.2ms)[0m  [1m[34mSELECT pg_advisory_unlock(3369180297042482685)[0m
+  [1m[36mActiveRecord::SchemaMigration Pluck (0.7ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+Started GET "/" for ::1 at 2022-05-31 10:24:37 -0500
+  [1m[36mActiveRecord::SchemaMigration Pluck (0.5ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  
+ActionController::RoutingError (uninitialized constant GreetingsController
+
+      Object.const_get(camel_cased_word)
+            ^^^^^^^^^^
+
+            raise MissingController.new(error.message, error.name)
+            ^^^^^):
+  
+Started GET "/favicon.ico" for ::1 at 2022-05-31 10:24:39 -0500
+  
+ActionController::RoutingError (No route matches [GET] "/favicon.ico"):
+  
+Started GET "/" for ::1 at 2022-05-31 10:25:08 -0500
+Processing by Rails::WelcomeController#index as HTML
+  Rendering /home/johnftitor/.rbenv/versions/3.1.1/lib/ruby/gems/3.1.0/gems/railties-7.0.3/lib/rails/templates/rails/welcome/index.html.erb
+  Rendered /home/johnftitor/.rbenv/versions/3.1.1/lib/ruby/gems/3.1.0/gems/railties-7.0.3/lib/rails/templates/rails/welcome/index.html.erb (Duration: 4.6ms | Allocations: 326)
+Completed 200 OK in 30ms (Views: 6.5ms | ActiveRecord: 0.0ms | Allocations: 2642)
+
+
+Started GET "/v1/greeting" for ::1 at 2022-05-31 10:25:18 -0500
+  
+ActionController::RoutingError (No route matches [GET] "/v1/greeting"):
+  
+Started GET "/v1/greeting" for ::1 at 2022-05-31 10:31:03 -0500
+  [1m[36mActiveRecord::SchemaMigration Pluck (0.4ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  
+ActionController::RoutingError (No route matches [GET] "/v1/greeting"):
+  
+Started GET "/v1/greeting" for ::1 at 2022-05-31 10:31:12 -0500
+  [1m[36mActiveRecord::SchemaMigration Pluck (1.5ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  
+ActionController::RoutingError (No route matches [GET] "/v1/greeting"):
+  
+Started GET "/v1/greetings" for ::1 at 2022-05-31 10:31:14 -0500
+Processing by V1::GreetingsController#index as JSON
+  [1m[36mGreeting Pluck (1.9ms)[0m  [1m[34mSELECT "greetings"."id" FROM "greetings"[0m
+  ↳ app/controllers/v1/greetings_controller.rb:3:in `index'
+Completed 404 Not Found in 13ms (ActiveRecord: 7.0ms | Allocations: 2509)
+
+
+  
+ActiveRecord::RecordNotFound (Couldn't find Greeting without an ID):
+  
+app/controllers/v1/greetings_controller.rb:3:in `index'
+  [1m[36mActiveRecord::SchemaMigration Pluck (0.4ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mGreeting Create (1.0ms)[0m  [1m[32mINSERT INTO "greetings" ("text", "created_at", "updated_at") VALUES ($1, $2, $3) RETURNING "id"[0m  [["text", "Hello"], ["created_at", "2022-05-31 15:31:27.020320"], ["updated_at", "2022-05-31 15:31:27.020320"]]
+  [1m[36mTRANSACTION (0.9ms)[0m  [1m[35mCOMMIT[0m
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mGreeting Create (0.2ms)[0m  [1m[32mINSERT INTO "greetings" ("text", "created_at", "updated_at") VALUES ($1, $2, $3) RETURNING "id"[0m  [["text", "Hola"], ["created_at", "2022-05-31 15:31:27.025255"], ["updated_at", "2022-05-31 15:31:27.025255"]]
+  [1m[36mTRANSACTION (0.7ms)[0m  [1m[35mCOMMIT[0m
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mGreeting Create (0.2ms)[0m  [1m[32mINSERT INTO "greetings" ("text", "created_at", "updated_at") VALUES ($1, $2, $3) RETURNING "id"[0m  [["text", "こんにちは"], ["created_at", "2022-05-31 15:31:27.028557"], ["updated_at", "2022-05-31 15:31:27.028557"]]
+  [1m[36mTRANSACTION (0.9ms)[0m  [1m[35mCOMMIT[0m
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mGreeting Create (0.2ms)[0m  [1m[32mINSERT INTO "greetings" ("text", "created_at", "updated_at") VALUES ($1, $2, $3) RETURNING "id"[0m  [["text", "Buna ziua"], ["created_at", "2022-05-31 15:31:27.032050"], ["updated_at", "2022-05-31 15:31:27.032050"]]
+  [1m[36mTRANSACTION (0.5ms)[0m  [1m[35mCOMMIT[0m
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mGreeting Create (0.2ms)[0m  [1m[32mINSERT INTO "greetings" ("text", "created_at", "updated_at") VALUES ($1, $2, $3) RETURNING "id"[0m  [["text", "Salve"], ["created_at", "2022-05-31 15:31:27.035207"], ["updated_at", "2022-05-31 15:31:27.035207"]]
+  [1m[36mTRANSACTION (0.8ms)[0m  [1m[35mCOMMIT[0m
+Started GET "/v1/greetings" for ::1 at 2022-05-31 10:31:31 -0500
+Processing by V1::GreetingsController#index as JSON
+  [1m[36mGreeting Pluck (0.4ms)[0m  [1m[34mSELECT "greetings"."id" FROM "greetings"[0m
+  ↳ app/controllers/v1/greetings_controller.rb:3:in `index'
+  [1m[36mGreeting Load (0.4ms)[0m  [1m[34mSELECT "greetings".* FROM "greetings" WHERE "greetings"."id" = $1 LIMIT $2[0m  [["id", 3], ["LIMIT", 1]]
+  ↳ app/controllers/v1/greetings_controller.rb:3:in `index'
+Completed 200 OK in 12ms (Views: 0.6ms | ActiveRecord: 1.0ms | Allocations: 4495)
+
+
+Started GET "/v1/greetings" for ::1 at 2022-05-31 10:31:34 -0500
+Processing by V1::GreetingsController#index as JSON
+  [1m[36mGreeting Pluck (0.5ms)[0m  [1m[34mSELECT "greetings"."id" FROM "greetings"[0m
+  ↳ app/controllers/v1/greetings_controller.rb:3:in `index'
+  [1m[36mGreeting Load (0.4ms)[0m  [1m[34mSELECT "greetings".* FROM "greetings" WHERE "greetings"."id" = $1 LIMIT $2[0m  [["id", 2], ["LIMIT", 1]]
+  ↳ app/controllers/v1/greetings_controller.rb:3:in `index'
+Completed 200 OK in 6ms (Views: 0.5ms | ActiveRecord: 0.9ms | Allocations: 1225)
+
+
+Started GET "/v1/greetings" for ::1 at 2022-05-31 10:31:35 -0500
+Processing by V1::GreetingsController#index as JSON
+  [1m[36mGreeting Pluck (0.5ms)[0m  [1m[34mSELECT "greetings"."id" FROM "greetings"[0m
+  ↳ app/controllers/v1/greetings_controller.rb:3:in `index'
+  [1m[36mGreeting Load (0.5ms)[0m  [1m[34mSELECT "greetings".* FROM "greetings" WHERE "greetings"."id" = $1 LIMIT $2[0m  [["id", 2], ["LIMIT", 1]]
+  ↳ app/controllers/v1/greetings_controller.rb:3:in `index'
+Completed 200 OK in 9ms (Views: 0.5ms | ActiveRecord: 0.9ms | Allocations: 1104)
+
+
+Started GET "/v1/greetings" for ::1 at 2022-05-31 10:31:36 -0500
+Processing by V1::GreetingsController#index as JSON
+  [1m[36mGreeting Pluck (0.3ms)[0m  [1m[34mSELECT "greetings"."id" FROM "greetings"[0m
+  ↳ app/controllers/v1/greetings_controller.rb:3:in `index'
+  [1m[36mGreeting Load (0.2ms)[0m  [1m[34mSELECT "greetings".* FROM "greetings" WHERE "greetings"."id" = $1 LIMIT $2[0m  [["id", 3], ["LIMIT", 1]]
+  ↳ app/controllers/v1/greetings_controller.rb:3:in `index'
+Completed 200 OK in 3ms (Views: 0.4ms | ActiveRecord: 0.5ms | Allocations: 1088)
+
+
+Started GET "/v1/greetings" for ::1 at 2022-05-31 10:31:38 -0500
+Processing by V1::GreetingsController#index as JSON
+  [1m[36mGreeting Pluck (0.4ms)[0m  [1m[34mSELECT "greetings"."id" FROM "greetings"[0m
+  ↳ app/controllers/v1/greetings_controller.rb:3:in `index'
+  [1m[36mGreeting Load (0.3ms)[0m  [1m[34mSELECT "greetings".* FROM "greetings" WHERE "greetings"."id" = $1 LIMIT $2[0m  [["id", 4], ["LIMIT", 1]]
+  ↳ app/controllers/v1/greetings_controller.rb:3:in `index'
+Completed 200 OK in 4ms (Views: 0.4ms | ActiveRecord: 0.7ms | Allocations: 1090)
+
+
+Started GET "/v1/greetings" for ::1 at 2022-05-31 10:31:38 -0500
+Processing by V1::GreetingsController#index as JSON
+  [1m[36mGreeting Pluck (0.4ms)[0m  [1m[34mSELECT "greetings"."id" FROM "greetings"[0m
+  ↳ app/controllers/v1/greetings_controller.rb:3:in `index'
+  [1m[36mGreeting Load (0.4ms)[0m  [1m[34mSELECT "greetings".* FROM "greetings" WHERE "greetings"."id" = $1 LIMIT $2[0m  [["id", 5], ["LIMIT", 1]]
+  ↳ app/controllers/v1/greetings_controller.rb:3:in `index'
+Completed 200 OK in 4ms (Views: 0.3ms | ActiveRecord: 0.8ms | Allocations: 1088)
+
+
+Started GET "/v1/greetings" for ::1 at 2022-05-31 10:31:39 -0500
+Processing by V1::GreetingsController#index as JSON
+  [1m[36mGreeting Pluck (0.6ms)[0m  [1m[34mSELECT "greetings"."id" FROM "greetings"[0m
+  ↳ app/controllers/v1/greetings_controller.rb:3:in `index'
+  [1m[36mGreeting Load (0.5ms)[0m  [1m[34mSELECT "greetings".* FROM "greetings" WHERE "greetings"."id" = $1 LIMIT $2[0m  [["id", 2], ["LIMIT", 1]]
+  ↳ app/controllers/v1/greetings_controller.rb:3:in `index'
+Completed 200 OK in 8ms (Views: 0.6ms | ActiveRecord: 1.1ms | Allocations: 1088)
+
+
+Started GET "/v1/greetings" for ::1 at 2022-05-31 10:31:40 -0500
+Processing by V1::GreetingsController#index as JSON
+  [1m[36mGreeting Pluck (0.7ms)[0m  [1m[34mSELECT "greetings"."id" FROM "greetings"[0m
+  ↳ app/controllers/v1/greetings_controller.rb:3:in `index'
+  [1m[36mGreeting Load (2.5ms)[0m  [1m[34mSELECT "greetings".* FROM "greetings" WHERE "greetings"."id" = $1 LIMIT $2[0m  [["id", 4], ["LIMIT", 1]]
+  ↳ app/controllers/v1/greetings_controller.rb:3:in `index'
+Completed 200 OK in 9ms (Views: 0.6ms | ActiveRecord: 3.1ms | Allocations: 1088)
+
+
+Started GET "/v1/greetings" for ::1 at 2022-05-31 10:31:41 -0500
+Processing by V1::GreetingsController#index as JSON
+  [1m[36mGreeting Pluck (0.6ms)[0m  [1m[34mSELECT "greetings"."id" FROM "greetings"[0m
+  ↳ app/controllers/v1/greetings_controller.rb:3:in `index'
+  [1m[36mGreeting Load (0.5ms)[0m  [1m[34mSELECT "greetings".* FROM "greetings" WHERE "greetings"."id" = $1 LIMIT $2[0m  [["id", 3], ["LIMIT", 1]]
+  ↳ app/controllers/v1/greetings_controller.rb:3:in `index'
+Completed 200 OK in 7ms (Views: 0.7ms | ActiveRecord: 1.0ms | Allocations: 1088)
+
+
